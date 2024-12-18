@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ragav's App</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(45deg, #914bdb, #c86be4, #829fd0);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-attachment: fixed; /* Fixed background for smooth scrolling */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent background for glassmorphism */
+            backdrop-filter: blur(15px); /* Glassmorphism blur effect */
+            border-radius: 25px;
+            padding: 40px;
+            width: 350px;
+            box-shadow: 0 4px 50px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Underline effect */
+            background: transparent;
+            color: #fff;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff7eb3; /* Soft pink border on focus */
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+            top: -18px; /* Move label above input when focused or filled */
+            font-size: 0.9rem;
+            color: #ff7eb3;
+        }
+
+        label {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            top: 18px;
+            left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.2rem;
+        }
+
+        button {
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #ff6a00, #ff758c); /* Gradient background */
+            color: white;
+            border: 2px solid transparent; /* No border when inactive */
+            border-radius: 50px; /* Fully rounded button */
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 15px rgba(255, 112, 140, 0.4); /* Soft glowing shadow */
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #ff758c, #ff6a00); /* Reverse gradient on hover */
+            transform: scale(1.05); /* Slight scale effect on hover */
+            box-shadow: 0 6px 25px rgba(255, 112, 140, 0.5); /* More prominent glow on hover */
+        }
+
+        button:active {
+            transform: scale(1); /* Reset scale on active */
+            box-shadow: 0 4px 15px rgba(255, 112, 140, 0.4); /* Soft glow when clicked */
+        }
+
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            z-index: -1;
+        }
+
+        /* Adding animation to the container for a smoother effect */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <div class="input-wrapper">
+                <i class="fa fa-user"></i> <!-- User icon -->
+                <input type="text" name="username" id="username" placeholder=" " required>
+                <label for="username">Username</label>
+            </div>
+            <div class="input-wrapper">
+                <i class="fa fa-lock"></i> <!-- Lock icon -->
+                <input type="password" name="password" id="password" placeholder=" " required>
+                <label for="password">Password</label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
